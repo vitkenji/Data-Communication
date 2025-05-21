@@ -2,9 +2,9 @@ CXX = g++
 
 CXXFLAGS = -std=c++11
 
-TARGET = server
+TARGET = client
 
-SRCS = main.cpp server.cpp
+SRCS = main.cpp client.cpp
 
 all: $(TARGET)
 

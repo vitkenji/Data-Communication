@@ -83,8 +83,10 @@ void Server::receiveData()
 			std::cerr << "error receiving data" << std::endl;
 			return;
 		}
-
-		buffer[bytes_received] = '\0';
-		std:: cout << "received data: " << buffer << std::endl;
+		if (bytes_received > 0)
+		{
+			buffer[bytes_received] = '\0';
+			std:: cout << "received data: " << buffer << std::endl;
+		}
 	}
 }
