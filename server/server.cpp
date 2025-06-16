@@ -12,7 +12,7 @@ Server* Server::getInstance()
 	return instance;
 }
 
-Server::Server(const std::string &host, int port)
+Server::Server(const std::string &host, int port): decoder(Decoder::getInstance())
 {
 	this->host = host;
 	this->port = port;
@@ -87,6 +87,7 @@ void Server::receiveData()
 		{
 			buffer[bytes_received] = '\0';
 			std:: cout << "received data: " << buffer << std::endl;
+			std:: cout << "decrypted data: " << decoder->encrypt_message(buffer) << std::endl;
 		}
 	}
 }

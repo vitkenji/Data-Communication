@@ -4,7 +4,7 @@ CXXFLAGS = -std=c++11
 
 TARGET = server
 
-SRCS = main.cpp server.cpp
+SRCS = main.cpp server.cpp decoder.cpp
 
 all: $(TARGET)
 

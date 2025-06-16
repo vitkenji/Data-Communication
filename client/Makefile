@@ -4,7 +4,7 @@ CXXFLAGS = -std=c++11
 
 TARGET = client
 
-SRCS = main.cpp client.cpp
+SRCS = main.cpp client.cpp coder.cpp
 
 all: $(TARGET)
 

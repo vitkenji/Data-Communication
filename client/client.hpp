@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "coder.hpp"
 
 class Client
 {
@@ -9,6 +10,7 @@ private:
 	int client_socket;
 	std::string host;
 	int port;
+	Coder* coder;
 
 public:
 	~Client();

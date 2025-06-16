@@ -22,7 +22,7 @@
 		instance = nullptr;
 	}
 
-	Client::Client(const std::string &host, int port):host(host), port(port), client_socket(-1)
+	Client::Client(const std::string &host, int port):host(host), port(port), client_socket(-1), coder(Coder::getInstance())
 	{
 	
 	}
@@ -52,13 +52,16 @@
 
 	void Client::sendData(const std::string &message)
 	{
-		if (send(client_socket, message.c_str(), message.length(), 0) == -1)
+		std::string encrypted = coder->encrypt_message(message);
+		
+		if (send(client_socket, encrypted.c_str(), encrypted.length(), 0) == -1)
 		{
 			std::cerr << "failed to send data" << std::endl;
 		}
 		else
 		{
 			std::cout << "sent data: " << message << std::endl;
+			std::cout << "encrypted data: " << encrypted << std::endl;
 		}
 	}
 
