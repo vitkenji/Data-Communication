@@ -86,8 +86,14 @@ void Server::receiveData()
 		if (bytes_received > 0)
 		{
 			buffer[bytes_received] = '\0';
-			std:: cout << "received data: " << buffer << std::endl;
-			std:: cout << "decrypted data: " << decoder->encrypt_message(buffer) << std::endl;
+			std::string binary = decoder->b8zs_decoder(buffer);
+			std::string encrypted = decoder->binary_to_encrypted(binary);
+			std::string decrypted = decoder->encrypt_message(encrypted);
+
+			std:: cout << "received: " << buffer << std::endl;
+			std:: cout << "binary: " << binary << std::endl;
+			std:: cout << "encrypted: " <<  encrypted << std::endl;  
+			std:: cout << "decrypted: " << decrypted << std::endl;
 		}
 	}
 }

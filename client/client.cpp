@@ -56,16 +56,16 @@
 		std::string binary = coder->encrypted_to_binary(encrypted);
 		std::string b8zs = coder->b8zs(binary);
 
-		if (send(client_socket, encrypted.c_str(), encrypted.length(), 0) == -1)
+		if (send(client_socket, b8zs.c_str(), b8zs.length(), 0) == -1)
 		{
 			std::cerr << "failed to send data" << std::endl;
 		}
 		else
 		{
-			std::cout << "sent data: " << message << std::endl;
-			std::cout << "encrypted data: " << encrypted << std::endl;
-			std::cout << "binary data: " << binary << std::endl;
-			std::cout << "b8zs data: " << b8zs << std::endl;
+			std::cout << "sent: " << message << std::endl;
+			std::cout << "encrypted: " << encrypted << std::endl;
+			std::cout << "binary: " << binary << std::endl;
+			std::cout << "b8zs: " << b8zs << std::endl;
 		}
 	}
 

@@ -3,6 +3,7 @@
 #include <string>
 #include <iomanip>
 #include <sstream>
+#include <unordered_map>
 
 class Decoder
 {
