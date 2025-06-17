@@ -34,7 +34,8 @@ std::string Decoder::encrypt_message(std::string message)
     return encrypted;
 }
 
-std::string Decoder::from_hex(const std::string& hex_input) {
+std::string Decoder::from_hex(const std::string& hex_input)
+{
     std::string output;
     if (hex_input.length() % 2 != 0) {
         throw std::invalid_argument("hex string has invalid length");
@@ -48,4 +49,14 @@ std::string Decoder::from_hex(const std::string& hex_input) {
 
     return output;
 
+}
+
+std::string Decoder::binary_to_encrypted(std::string binary)
+{
+    return "";
+}
+
+std::string Decoder::b8zs_decoder(std::string data)
+{
+    return "";
 }

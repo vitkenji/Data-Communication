@@ -53,7 +53,9 @@
 	void Client::sendData(const std::string &message)
 	{
 		std::string encrypted = coder->encrypt_message(message);
-		
+		std::string binary = coder->encrypted_to_binary(encrypted);
+		std::string b8zs = coder->b8zs(binary);
+
 		if (send(client_socket, encrypted.c_str(), encrypted.length(), 0) == -1)
 		{
 			std::cerr << "failed to send data" << std::endl;
@@ -62,6 +64,8 @@
 		{
 			std::cout << "sent data: " << message << std::endl;
 			std::cout << "encrypted data: " << encrypted << std::endl;
+			std::cout << "binary data: " << binary << std::endl;
+			std::cout << "b8zs data: " << b8zs << std::endl;
 		}
 	}
 
